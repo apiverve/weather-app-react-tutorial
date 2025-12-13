@@ -41,9 +41,9 @@ This tutorial requires an APIVerve API key. **[Sign up free](https://dashboard.a
 
 3. **Add your API key**
 
-   Open `src/App.jsx` and replace the placeholder with your API key:
-   ```javascript
-   const API_KEY = 'your-api-key-here';
+   Open `.env` and add your API key:
+   ```
+   VITE_API_KEY=your-api-key-here
    ```
 
 4. **Start the development server**
@@ -66,6 +66,7 @@ weather-app-react-tutorial/
 ├── index.html          # HTML template
 ├── package.json        # Dependencies
 ├── vite.config.js      # Vite configuration
+├── .env                # Environment variables (add your API key)
 ├── screenshot.jpg      # Preview image
 ├── LICENSE             # MIT license
 ├── .gitignore          # Git ignore rules
