@@ -91,6 +91,11 @@ button:disabled {
   border-top: 1px solid #eee;
 }
 
+.weather-icon {
+  font-size: 64px;
+  margin-bottom: 8px;
+}
+
 .temp {
   display: flex;
   align-items: flex-start;
