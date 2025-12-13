@@ -8,12 +8,22 @@ import './App.css';
  * https://apiverve.com/marketplace/weatherforecast
  */
 
-// ============================================
-// CONFIGURATION - Add your API key here
+// API Configuration
+// Create a .env file with: VITE_API_KEY=your-api-key-here
 // Get a free key at: https://dashboard.apiverve.com
-// ============================================
-const API_KEY = 'your-api-key-here';
+const API_KEY = import.meta.env.VITE_API_KEY;
 const API_URL = 'https://api.apiverve.com/v1/weatherforecast';
+
+// Get weather emoji based on temperature
+const getWeatherEmoji = (tempF) => {
+  if (tempF >= 95) return '🔥';
+  if (tempF >= 85) return '☀️';
+  if (tempF >= 70) return '🌤️';
+  if (tempF >= 55) return '⛅';
+  if (tempF >= 40) return '🌥️';
+  if (tempF >= 32) return '❄️';
+  return '🥶';
+};
 
 function App() {
   const [city, setCity] = useState('');
@@ -29,8 +39,8 @@ function App() {
       return;
     }
 
-    if (API_KEY === 'your-api-key-here') {
-      setError('Add your API key to src/App.jsx first');
+    if (!API_KEY) {
+      setError('Add your API key to .env file (VITE_API_KEY=your-key)');
       return;
     }
 
@@ -64,7 +74,7 @@ function App() {
   return (
     <div className="app">
       <div className="container">
-        <h1>Weather App</h1>
+        <h1>🌎 Weather App</h1>
         <p className="subtitle">Get current weather for any city</p>
 
         <form onSubmit={fetchWeather}>
@@ -83,6 +93,7 @@ function App() {
 
         {weather && (
           <div className="weather-card">
+            <div className="weather-icon">{getWeatherEmoji(weather.tempF)}</div>
             <div className="temp">
               <span className="temp-value">{Math.round(weather.tempF)}</span>
               <span className="temp-unit">°F</span>
@@ -93,27 +104,27 @@ function App() {
 
             <div className="details">
               <div className="detail">
-                <span className="label">Feels Like</span>
+                <span className="label">🌡️ Feels Like</span>
                 <span className="value">{Math.round(weather.feelslikeF)}°F</span>
               </div>
               <div className="detail">
-                <span className="label">Wind</span>
+                <span className="label">💨 Wind</span>
                 <span className="value">{weather.windMph} mph {weather.windDir}</span>
               </div>
               <div className="detail">
-                <span className="label">Humidity</span>
+                <span className="label">💧 Humidity</span>
                 <span className="value">{weather.humidity || 'N/A'}%</span>
               </div>
               <div className="detail">
-                <span className="label">Visibility</span>
+                <span className="label">👁️ Visibility</span>
                 <span className="value">{weather.visMiles} mi</span>
               </div>
               <div className="detail">
-                <span className="label">Pressure</span>
+                <span className="label">🎛️ Pressure</span>
                 <span className="value">{weather.pressureIn} in</span>
               </div>
               <div className="detail">
-                <span className="label">Gusts</span>
+                <span className="label">🌬️ Gusts</span>
                 <span className="value">{weather.gustMph} mph</span>
               </div>
             </div>
