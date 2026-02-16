@@ -1,6 +1,7 @@
 # Weather App | APIVerve API Tutorial
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 [![React](https://img.shields.io/badge/React-18-61dafb)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-5-646cff)](https://vitejs.dev)
 [![APIVerve | Weather](https://img.shields.io/badge/APIVerve-Weather-purple)](https://apiverve.com/marketplace/weatherforecast?utm_source=github&utm_medium=tutorial&utm_campaign=weather-app-react-tutorial)
