@@ -17,3 +17,6 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# Environment secrets (never commit real keys)
+.env
